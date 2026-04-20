@@ -28,6 +28,16 @@
 //    }
 //}
 
+/*
+
+Responsibilities of Servlets are as follows:
+
+Servlets work on the server-side
+It is used to handle client requests and generate a corresponding response.
+Managing request dispatching (e.g., forwarding that request to another servlet).
+
+*/
+
 package com.example.demo;
 
 import jakarta.servlet.ServletException;
@@ -48,10 +58,10 @@ public class HelloServlet extends HttpServlet {
     }
     protected void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        PrintWriter out =response.getWriter();
-        String userName = request.getParameter("userName");
+        PrintWriter out =response.getWriter();//
+        String userName = request.getParameter("userName");//getRequest
         String password = request.getParameter("password");
-        out.print("<html><body>");
+        out.print("<html><body>");//Post
         out.print("<h1>Hello!!!</h1>");
         out.printf("<h3>User Name with : %s </h3><h3>Your password is : %s</h3>",userName,password);
         out.print("</body></html>");
