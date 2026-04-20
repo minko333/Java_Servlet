@@ -52,7 +52,7 @@ import java.io.PrintWriter;
 @WebServlet("/Login")
 public class HelloServlet extends HttpServlet {
 
-   //init stat
+   //init state
     public HelloServlet(){
         super();
     }
