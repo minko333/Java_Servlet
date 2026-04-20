@@ -1,29 +1,59 @@
+//package com.example.demo;
+//
+//import java.io.*;
+//
+//import jakarta.servlet.http.*;
+//import jakarta.servlet.annotation.*;
+//
+//@WebServlet(name = "helloServlet", value = "/hello-servlet")
+//public class HelloServlet extends HttpServlet {
+//    private String message;
+//
+//    public void init() {
+//        message = "Hello World!";
+//    }
+//
+//    //service
+//    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+//        response.setContentType("text/html");
+//
+//        // Hello
+//        PrintWriter out = response.getWriter();
+//        out.println("<html><body>");
+//        out.println("<h1>" + message + "</h1>");
+//        out.println("</body></html>");
+//    }
+//
+//    public void destroy() {
+//    }
+//}
+
 package com.example.demo;
 
-import java.io.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
+@WebServlet("/Login")
 public class HelloServlet extends HttpServlet {
-    private String message;
-
-    public void init() {
-        message = "Hello World!";
+    private static final long serialVersionUID = 1L;
+    public HelloServlet(){
+        super();
     }
-
-    //service
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
+        PrintWriter out =response.getWriter();
+        String userName = request.getParameter("userName");
+        String password = request.getParameter("password");
+        out.print("<html><body>");
+        out.print("<h1>Hello!!!</h1>");
+        out.printf("<h3>User Name with : %s </h3><h3>Your password is : %s</h3>",userName,password);
+        out.print("</body></html>");
 
-        // Hello
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("</body></html>");
-    }
-
-    public void destroy() {
     }
 }
