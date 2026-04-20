@@ -41,8 +41,8 @@ import java.io.PrintWriter;
 
 @WebServlet("/Login")
 public class HelloServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-   //init state
+
+   //init stat
     public HelloServlet(){
         super();
     }
